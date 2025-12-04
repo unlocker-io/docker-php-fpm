@@ -16,7 +16,7 @@ Before pushing your changes, make sure it works by building the image locally :
 
 - All versions must extend dockerfile official php fpm image, no alpine allowed.
     
-- PHP versions must be specific (`7.3.16` instead of only `7.3`)
+- PHP versions must be specific (`8.2.7` instead of only `8.2`)
 
 - Each change must come with an updated [CHANGELOG](CHANGELOG.md)
 
@@ -25,7 +25,7 @@ Before pushing your changes, make sure it works by building the image locally :
 UID / GID : existing `www-data` user is updated to have UID and GID 1000, to avoid permissions problems with mounted directories. If you have yourself an user with another UID / GID, you can change your own UID / GID or extends this image in your own Dockerfile like this (where 1001 is your UID) :
 
 ```Dockerfile
-FROM unlocker/php-fpm:7.3.16
+FROM unlockerio/php-fpm:8.2.7
 RUN usermod -u 1001 www-data \
     && groupmod -g 1001 www-data \
     && find / -user 1000 -exec chown -h 1001 {} \; || true \
